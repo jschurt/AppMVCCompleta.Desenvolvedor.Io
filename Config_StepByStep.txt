@@ -1,0 +1,60 @@
+1) Create Solution
+2) Create Projects (App [with identity], Business, Data)
+3) Create Business Folders (Interfaces, Models, Notificacoes, Services, Validations)
+4) Create Data Folders (Context, Mappings, Repository)
+5) Create MeuDbContext (DevIO.Data)
+6) Create EntityMappings (DevIO.Data)
+7) Setup Context in starttup and application.json
+8) Create migrations and update database
+9) Create generic IRepository and repository interfaces for domain entities (domain)
+10) Implement repositories (Data)
+11) Add DI for Repositories and DbContext (startup)
+12) Create ViewModels
+13) Install AutoMapper and add startup.
+14) Create Controllers using scaffold and adjusting (Fornecedor + Produtos)
+15) Create partial view Endereco
+16) Add Partial View Endereco inside View Fornecedor - Create
+17) Create View Produtos
+18) [Opcional] Mudando localizacao para PT-BR.  Alterar startup e incluir culture e localization options (Configure Method) Nao seria uma boa colocar para o padrao americano para ter certeza?
+19) [Opcional] Incluir mensagens padrao de erro do model binder em portugues. Alterar startup e editar services.AddControllersWithViews()
+20) [Opcional] Editando _ValidationScriptsPartial.cshtml para que o javascript valide valores no formato pt-br.
+21) Criando Model Validation Attribute MoeadaAttribute.cs (dentro da pasta DevIO.App.Extensions). Este atributo pode ser utilizado para decorar uma viewmodel para validar um campo moeda.
+22) Adicionar MoedaValidationAttributeAdapterProvider (para validacao de moeda no client) na injecao de dependencia (startup)
+23) Alterar a ViewModel ProdutoViewModel.cs e adicionar o atributo [Moeda] no campo valor
+24) Incluir a extensao RazorExtensions para formatar a apresentacao de cpf ou cnpj. Editar as Views para apresentar o novo metodo de extencao (FormataDocumento)
+25) Criar partial view _DetalhesEndereco e aplicar nas views
+26) Criar partial view _AtualizarEndereco e aplicar nas views
+27) Editar site.js com script para: abrir modal endereco, carregar partial view e consulta de cep.
+28) Criando DependencyInjectionConfig. GlobalizationConfig, IdentityConfig e MVCConfig (dentro de Configurations) para simplificar startup.cs
+29) Criar novo constructor para startup para permitir trabalhar com multiplos appsettings de acordo com o ambiente (remover construtor antido e adicionar o novo)
+30) Criar dentro de Extensions, EmailTagHelper e adicionar no rodape de _Layout.
+31) Adicionar dentro de _ViewImports o namespace da taghelper para funcionar (@addTagHelper "*,DevIO.App")
+32) Adicionando rotas [Route] nas actions dos controllers
+33) Instalar o pacote FluentValidation em DevIO.Business
+34) Criar o arquivo ValidacaoDocumentos.cs com classes/metodos de apoio para validacao de cpf e cnpj
+35) Criar classes de validacao do dominio (FornecedorValidation e ProdutoValidation)
+36) Criar classes de validacao (FornecedorValidation e ProdutoValidation)
+37) Implementar mecanismo de notificacao de erro criando interface (INotificadorErro).
+38) Criar classe NotificacaoErro (entidade com definicao da notificacao) e NotificadorErro (entidade que contem a lista de erros) dentro da pasta Notificacoes
+39) Criar Interfaces de Servico (IProdutoService e IFornecedorService)
+40) Criar classe base para os servicos (BaseService)
+40) Criar classes de servico (ProdutoService e FornecedorService) que herdarao de uma base class (BaseService) e das interfaces de servico
+42) Adicionar na DI INotificadorErro,NotificadorErro e servicos de Produto e Fornecedor
+43) Editar BaseController para injetar NotificadorErro.
+44) Criar View Component responsavel para exibir erros (SummaryErrorsViewComponent) dentro da pasta Extensions
+45) Criar view para o ViewComponent (Shared -> Components -> SummaryErrors -> Default.cshtml)
+46) Editar COntrollers para verificar erros apos as operacoes de insert/update/delete 
+47) Adicionar View Components (<vc:summaryerror>>) nas views.
+48) Registrar usuario na aplicacao e criar as claims na tabela AspNetUserClaims (Fornecedor = Editar,Cadastrar,Excluir e Produto = Editar,Cadastrar,Excluir)
+49) [Adicionando validacao por filtro de claim.] Adicionar [CustomAuthorize] dentro de Extensions
+50) Alterar controllers para adicionar o atributo [ClaimsAuthorize]
+51) Criar tag helper (ApagaElementoByClaimTagHelper) dentro de Extensions para renderizar ou nao elementos baseado nas claims. O que fara o .Net entender que um elemento eh um tag helper sera a presenca dos atributos dentro da tag html.
+52) Editar views adicionando os atributos "supress-by-claim-name" "supress-by-claim-value" conforme necessario
+53) Criar tag helper (DesabilitaLinkByClaimTagHelper) dentro de Extensions para desabilitar links baseado nas claims. O que fara o .Net entender que um elemento eh um tag helper sera a presenca dos atributos dentro da tag html.
+54) Editar views adicionando os atributos "disable-by-claim-name" "disable-by-claim-value" conforme necessario
+55) Criar tag helper (ApagaElementoByClaimTagHelper) dentro de Extensions para renderizar ou nao elementos baseado no Action Name. O que fara o .Net entender que um elemento eh um tag helper sera a presenca dos atributos dentro da tag html.
+56) Editar partial views "_DetalhesEndereco" adicionando o atributo "supress-by-action"  no botao de editar endereco. 
+57) [Tratamento de Erros] Editar "Startup", metodo "Configure" e modifique o tratamento de erros para o ambiente de producao.
+58) [Tratamento de Erros] Atualizar "ErrorViewModel"
+59) [Tratamento de Erros] Remover metodo "Error" e incluir o metodo "Erro" personalizado
+60) [Tratamento de Erros] Atualizar View "Error" (dentro de shared)
